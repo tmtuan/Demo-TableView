@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) NSArray *tfs;
+
 @end
 
 @implementation ViewController
@@ -18,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib
+    
+    self.tfs = [NSArray arrayWithObjects:@"Tuan", @"Petteri", @"Quan", nil];
 }
 
 
