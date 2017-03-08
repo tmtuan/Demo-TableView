@@ -31,5 +31,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Methods for tableview
+
+// How many sections do I have
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+// How many row in the selected section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.tfs.count;
+}
+
+// What does a cell look like?
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // if there is no cell in the cache
+    if (cell == nil) {
+        // allocate cell
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = [self.tfs objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
 
 @end
